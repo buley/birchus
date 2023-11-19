@@ -1,5 +1,7 @@
 # Birch
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0033e6e4-3520-44bc-beca-217e61dfa270/deploy-status)](https://app.netlify.com/sites/birchus/deploys)
+
 ### Environment variables
 
 In order to authenticate the requests to the Contentful APIs, the following values are necessary:
