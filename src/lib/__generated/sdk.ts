@@ -230,7 +230,7 @@ export enum AssetOrder {
   WidthDesc = 'width_DESC'
 }
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeo = Entry & {
   __typename?: 'ComponentSeo';
   canonicalUrl?: Maybe<Scalars['String']>;
@@ -246,49 +246,49 @@ export type ComponentSeo = Entry & {
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoCanonicalUrlArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoInternalNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoNofollowArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoNoindexArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoPageDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoPageTitleArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/componentSeo) */
+/** To have SEO-related properties in the pages we render [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/componentSeo) */
 export type ComponentSeoShareImagesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -365,6 +365,7 @@ export type ComponentSeoLinkingCollectionsEntryCollectionArgs = {
 export type ComponentSeoLinkingCollectionsPageLandingCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<ComponentSeoLinkingCollectionsPageLandingCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
@@ -373,9 +374,46 @@ export type ComponentSeoLinkingCollectionsPageLandingCollectionArgs = {
 export type ComponentSeoLinkingCollectionsPageProductCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<ComponentSeoLinkingCollectionsPageProductCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum ComponentSeoLinkingCollectionsPageLandingCollectionOrder {
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum ComponentSeoLinkingCollectionsPageProductCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum ComponentSeoOrder {
   CanonicalUrlAsc = 'canonicalUrl_ASC',
@@ -550,7 +588,7 @@ export type ImageTransformOptions = {
   width?: InputMaybe<Scalars['Dimension']>;
 };
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLanding = Entry & {
   __typename?: 'PageLanding';
   contentfulMetadata: ContentfulMetadata;
@@ -565,50 +603,53 @@ export type PageLanding = Entry & {
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingHeroBannerHeadlineArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingHeroBannerHeadlineColorArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingHeroBannerImageArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingInternalNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingProductsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageLandingProductsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<PageProductFilter>;
 };
 
 
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageLanding) */
+/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingSeoFieldsArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<ComponentSeoFilter>;
 };
 
 export type PageLandingCollection = {
@@ -690,7 +731,26 @@ export type PageLandingProductsCollection = {
   total: Scalars['Int'];
 };
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+export enum PageLandingProductsCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProduct = Entry & {
   __typename?: 'PageProduct';
   contentfulMetadata: ContentfulMetadata;
@@ -708,44 +768,44 @@ export type PageProduct = Entry & {
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductFeaturedProductImageArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductInternalNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductPriceArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductProductImagesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -754,23 +814,26 @@ export type PageProductProductImagesCollectionArgs = {
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductRelatedProductsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageProductRelatedProductsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<PageProductFilter>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductSeoFieldsArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<ComponentSeoFilter>;
 };
 
 
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/a67phq2m6waq/content_types/pageProduct) */
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductSlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
@@ -852,6 +915,7 @@ export type PageProductLinkingCollectionsEntryCollectionArgs = {
 export type PageProductLinkingCollectionsPageLandingCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageProductLinkingCollectionsPageLandingCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
@@ -860,9 +924,46 @@ export type PageProductLinkingCollectionsPageLandingCollectionArgs = {
 export type PageProductLinkingCollectionsPageProductCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageProductLinkingCollectionsPageProductCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum PageProductLinkingCollectionsPageLandingCollectionOrder {
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum PageProductLinkingCollectionsPageProductCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum PageProductOrder {
   InternalNameAsc = 'internalName_ASC',
@@ -890,6 +991,25 @@ export type PageProductRelatedProductsCollection = {
   skip: Scalars['Int'];
   total: Scalars['Int'];
 };
+
+export enum PageProductRelatedProductsCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export type Query = {
   __typename?: 'Query';

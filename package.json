@@ -42,6 +42,7 @@
     "dotenv": "^16.0.3",
     "framer-motion": "^7.6.11",
     "graphql": "^16.6.0",
+    "graphql-request": "^6.1.0",
     "http": "^0.0.1-security",
     "locale-currency": "^0.0.2",
     "next": "13.0.5",

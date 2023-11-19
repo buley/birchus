@@ -24,7 +24,6 @@ export const ProductDetails = ({
           <Flex flexDirection="column" gap={{ base: 3, lg: 5 }}>
             {featuredProductImage && (
               <CtfImage
-                livePreviewProps={inspectorProps({ fieldId: 'featuredProductImage' })}
                 {...featuredProductImage}
               />
             )}
@@ -32,7 +31,6 @@ export const ProductDetails = ({
               productImagesCollection.items.map(image => {
                 return image ? (
                   <CtfImage
-                    livePreviewProps={inspectorProps({ fieldId: 'productImages' })}
                     key={image.sys.id}
                     imageProps={{
                       sizes: '(max-width: 1200px) 70vw, 100vw',

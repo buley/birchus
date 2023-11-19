@@ -20,7 +20,7 @@
       "@src/*": ["./src/*"],
       "@icons/*": ["./public/assets/svg/*"]
     },
-    "typeRoots": ["./@types", "./@contentful", "./node_modules/@types", "./types"],
+    "typeRoots": ["./@types", "./node_modules/@contentful", "./node_modules/@types", "./types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

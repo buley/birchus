@@ -1,11 +1,9 @@
-import type { InspectorModeTags } from '@contentful/live-preview/dist/types';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
 
 import { ImageFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface ImageProps extends ImageFieldsFragment {
   imageProps?: Omit<NextImageProps, 'src' | 'alt'>;
-  livePreviewProps?: InspectorModeTags;
 }
 
 export const CtfImage = ({
@@ -14,7 +12,6 @@ export const CtfImage = ({
   height,
   title,
   imageProps,
-  livePreviewProps,
 }: ImageProps) => {
   if (!url || !width || !height) return null;
 
@@ -31,7 +28,6 @@ export const CtfImage = ({
       placeholder="blur"
       blurDataURL={blurURL.toString()}
       {...imageProps}
-      {...livePreviewProps}
     />
   );
 };
