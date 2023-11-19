@@ -4,14 +4,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Template
 metadata:
-  name: template-ecommerce-webapp-nextjs 
-  description: Next.js ecommerce website starter template
+  name: template-ecommerce-birch-webapp-nextjs 
+  description: Next.js ecommerce website Birch starter template
   annotations:
-    github.com/project-slug: contentful/template-ecommerce-webapp-nextjs 
+    github.com/project-slug: buley/birchus 
     contentful.com/service-tier: "4"
-
   tags:
     - starter-templates
+    - birch
     - ecommerce
     - nextjs
     - graphql
