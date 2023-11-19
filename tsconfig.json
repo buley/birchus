@@ -27,6 +27,6 @@
     "isolatedModules": true,
     "incremental": true
   },
-  "exclude": ["node_modules", "next.config.js"],
+  "exclude": ["node_modules", "next.config.js", "node_modules/*"],
   "include": ["**/*.ts", "**/*.tsx", "@types/**/*.d.ts"]
 }
