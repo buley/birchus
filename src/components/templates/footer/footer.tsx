@@ -1,4 +1,4 @@
-import { Container, Box, Text, Link, useTheme } from '@chakra-ui/react';
+import { Container, Box, Text, useTheme } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 
 export const Footer = () => {

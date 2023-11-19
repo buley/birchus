@@ -1,6 +1,6 @@
 import { Box, BoxProps, Flex } from '@chakra-ui/react';
-import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 import MobileLogo from '@icons/birch-mobile.svg';
 import DesktopLogo from '@icons/birch.svg';
