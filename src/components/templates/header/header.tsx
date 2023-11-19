@@ -27,7 +27,7 @@ export const Header = (props: BoxProps) => {
           as={DesktopLogo}
           title={t('common.logoImageAltText')}
         />
-        <Boxgi
+        <Box
           display={{ base: 'block', md: 'none', lg: 'none' }}
           as={MobileLogo}
           title={t('common.logoImageAltText')}
