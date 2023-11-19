@@ -17,14 +17,18 @@ export const config: CodegenConfig = {
   ],
   generates: {
     'src/lib/__generated/graphql.schema.json': {
-      plugins: ['introspection'],
+      plugins: ['introspection', ],
     },
     'src/lib/__generated/graphql.schema.graphql': {
       plugins: ['schema-ast'],
     },
     'src/lib/__generated/sdk.ts': {
       documents: ['src/lib/graphql/**/*.graphql'],
-      plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
+      plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request', {
+        add: {
+          content: '// @ts-nocheck',
+        },
+      }],
       config: {
         rawRequest: false,
         inlineFragmentTypes: 'combine',
