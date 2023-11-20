@@ -1,0 +1,3 @@
+query pageMediaCollection($locale: String, $preview: Boolean) {
+  
+}
