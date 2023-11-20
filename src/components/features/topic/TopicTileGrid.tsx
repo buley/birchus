@@ -1,6 +1,6 @@
 import { Container, Grid, GridItem, Heading } from '@chakra-ui/react';
 
-import { ProductTile } from '@src/components/features/topic/TopicTile';
+import { TopicTile } from '@src/components/features/topic/TopicTile';
 import { PageTopicFieldsFragment } from '@src/lib/__generated/sdk';
 
 interface TopicTileGridProps {
@@ -25,7 +25,7 @@ export const TopicTileGrid = ({ title, topics }: TopicTileGridProps) => {
         rowGap={{ base: 6, lg: 6 }}
         columnGap={{ base: 4, lg: 24 }}>
         {topics.map((topic, index) => {
-          return <GridItem key={index}>{topic ? <ProductTile {...topic} /> : null}</GridItem>;
+          return <GridItem key={index}>{topic ? <TopicTile {...topic} /> : null}</GridItem>;
         })}
       </Grid>
     </Container>
