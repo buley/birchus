@@ -12,11 +12,37 @@ import { getServerSideTranslations } from '@src/pages/utils/get-serverside-trans
 const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { t } = useTranslation();
   const page = useContentfulLiveUpdates(props.page);
-
+  console.log("PAGE",props.page, page);
   return (
     <>
       {page.seoFields && <SeoFields {...page.seoFields} />}
       <HeroBanner {...page} />
+      {page.media?.items && (
+        <Box
+          mt={{
+            base: 5,
+            md: 9,
+            lg: 16,
+          }}>
+          <ProductTileGrid
+            title={t('product.trendingMedia')}
+            products={page.media.items}
+          />
+        </Box>
+      )}
+      {page.articles?.items && (
+        <Box
+          mt={{
+            base: 5,
+            md: 9,
+            lg: 16,
+          }}>
+          <ProductTileGrid
+            title={t('product.trendingArticles')}
+            products={page.articles.items}
+          />
+        </Box>
+      )}
       {page.productsCollection?.items && (
         <Box
           mt={{

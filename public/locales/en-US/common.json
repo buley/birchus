@@ -11,6 +11,8 @@
     "language": "Language"
   },
   "product": {
+    "trendingMedia": "Featured Media",
+    "trendingArticles": "Featured Articles",
     "trendingProducts": "Featured Objects",
     "relatedProducts": "See Also",
     "addToCart": "Add to Cart",
