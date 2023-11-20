@@ -23,6 +23,11 @@ fragment PageTopicFields on PageTopic {
       ...BasePageProductFields
     }
   }
+  articlesCollection(limit: 16) {
+    items {
+      ...BasePageArticleFields
+    }
+  }
 }
 
 query pageTopic($slug: String!, $locale: String, $preview: Boolean) {
