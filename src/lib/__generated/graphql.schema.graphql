@@ -249,12 +249,18 @@ enum ComponentSeoLinkingCollectionsPageProductCollectionOrder {
 }
 
 enum ComponentSeoLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -573,12 +579,18 @@ type PageArticleLinkingCollections {
 }
 
 enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -696,12 +708,18 @@ type PageLandingLinkingCollections {
 }
 
 enum PageLandingLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -720,12 +738,18 @@ type PageLandingMediaCollection {
 }
 
 enum PageLandingMediaCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -916,12 +940,18 @@ enum PageProductLinkingCollectionsPageProductCollectionOrder {
 }
 
 enum PageProductLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -983,14 +1013,18 @@ To have a place for topic-based hubs. [See type definition](https://app.contentf
 type PageTopic implements Entry {
   articlesCollection(limit: Int = 100, locale: String, order: [PageTopicArticlesCollectionOrder], preview: Boolean, skip: Int = 0, where: PageArticleFilter): PageTopicArticlesCollection
   contentfulMetadata: ContentfulMetadata!
+  description(locale: String): String
+  featuredMediaImage(locale: String, preview: Boolean): Asset
   heroBannerHeadline(locale: String): String
   heroBannerHeadlineColor(locale: String): String
   heroBannerImage(locale: String, preview: Boolean): Asset
   homepage(locale: String, preview: Boolean, where: PageLandingFilter): PageLanding
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): PageTopicLinkingCollections
+  name(locale: String): String
   productsCollection(limit: Int = 100, locale: String, order: [PageTopicProductsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageProductFilter): PageTopicProductsCollection
   seoFields(locale: String, preview: Boolean, where: ComponentSeoFilter): ComponentSeo
+  slug(locale: String): String
   sys: Sys!
 }
 
@@ -1031,6 +1065,14 @@ input PageTopicFilter {
   articles: cfPageArticleNestedFilter
   articlesCollection_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  featuredMediaImage_exists: Boolean
   heroBannerHeadline: String
   heroBannerHeadlineColor: String
   heroBannerHeadlineColor_contains: String
@@ -1055,10 +1097,24 @@ input PageTopicFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
   products: cfPageProductNestedFilter
   productsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
   seoFields_exists: Boolean
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
   sys: SysFilter
 }
 
@@ -1085,12 +1141,18 @@ enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
 }
 
 enum PageTopicOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -1455,6 +1517,14 @@ input cfPageTopicNestedFilter {
   OR: [cfPageTopicNestedFilter]
   articlesCollection_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  featuredMediaImage_exists: Boolean
   heroBannerHeadline: String
   heroBannerHeadlineColor: String
   heroBannerHeadlineColor_contains: String
@@ -1478,7 +1548,21 @@ input cfPageTopicNestedFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
   productsCollection_exists: Boolean
   seoFields_exists: Boolean
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
   sys: SysFilter
 }

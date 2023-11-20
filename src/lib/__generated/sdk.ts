@@ -483,12 +483,18 @@ export enum ComponentSeoLinkingCollectionsPageProductCollectionOrder {
 }
 
 export enum ComponentSeoLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -839,12 +845,18 @@ export type PageArticleLinkingCollectionsPageTopicCollectionArgs = {
 };
 
 export enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1042,12 +1054,18 @@ export type PageLandingLinkingCollectionsPageTopicCollectionArgs = {
 };
 
 export enum PageLandingLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1067,12 +1085,18 @@ export type PageLandingMediaCollection = {
 };
 
 export enum PageLandingMediaCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1380,12 +1404,18 @@ export enum PageProductLinkingCollectionsPageProductCollectionOrder {
 }
 
 export enum PageProductLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1447,14 +1477,18 @@ export type PageTopic = Entry & {
   __typename?: 'PageTopic';
   articlesCollection?: Maybe<PageTopicArticlesCollection>;
   contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']>;
+  featuredMediaImage?: Maybe<Asset>;
   heroBannerHeadline?: Maybe<Scalars['String']>;
   heroBannerHeadlineColor?: Maybe<Scalars['String']>;
   heroBannerImage?: Maybe<Asset>;
   homepage?: Maybe<PageLanding>;
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageTopicLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
   productsCollection?: Maybe<PageTopicProductsCollection>;
   seoFields?: Maybe<ComponentSeo>;
+  slug?: Maybe<Scalars['String']>;
   sys: Sys;
 };
 
@@ -1467,6 +1501,19 @@ export type PageTopicArticlesCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<PageArticleFilter>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicFeaturedMediaImageArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1510,6 +1557,12 @@ export type PageTopicLinkedFromArgs = {
 
 
 /** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
 export type PageTopicProductsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -1525,6 +1578,12 @@ export type PageTopicSeoFieldsArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<ComponentSeoFilter>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicSlugArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 export type PageTopicArticlesCollection = {
@@ -1566,6 +1625,14 @@ export type PageTopicFilter = {
   articles?: InputMaybe<CfPageArticleNestedFilter>;
   articlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  featuredMediaImage_exists?: InputMaybe<Scalars['Boolean']>;
   heroBannerHeadline?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor_contains?: InputMaybe<Scalars['String']>;
@@ -1590,10 +1657,24 @@ export type PageTopicFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   products?: InputMaybe<CfPageProductNestedFilter>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
@@ -1638,12 +1719,18 @@ export enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
 }
 
 export enum PageTopicOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -2177,6 +2264,14 @@ export type CfPageTopicNestedFilter = {
   OR?: InputMaybe<Array<InputMaybe<CfPageTopicNestedFilter>>>;
   articlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  featuredMediaImage_exists?: InputMaybe<Scalars['Boolean']>;
   heroBannerHeadline?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor_contains?: InputMaybe<Scalars['String']>;
@@ -2200,271 +2295,26 @@ export type CfPageTopicNestedFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
-export type ImageFieldsFragment = { __typename: 'Asset', title?: string | null, description?: string | null, width?: number | null, height?: number | null, url?: string | null, contentType?: string | null, sys: { __typename?: 'Sys', id: string } };
 
-export type PageLandingFieldsFragment = { __typename: 'PageLanding', internalName?: string | null, heroBannerHeadline?: string | null, heroBannerHeadlineColor?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
-    { __typename?: 'ComponentSeo' }
-    & SeoFieldsFragment
-  ) | null, heroBannerImage?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null, productsCollection?: { __typename?: 'PageLandingProductsCollection', items: Array<(
-      { __typename?: 'PageProduct' }
-      & PageProductFieldsFragment
-    ) | null> } | null };
-
-export type PageLandingQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageLandingQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
-      { __typename?: 'PageLanding' }
-      & PageLandingFieldsFragment
-    ) | null> } | null };
-
-export type PageLandingCollectionQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
-      { __typename?: 'PageLanding' }
-      & PageLandingFieldsFragment
-    ) | null> } | null };
-
-export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, slug?: string | null, name?: string | null, description?: string | null, price?: number | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
-    { __typename?: 'ComponentSeo' }
-    & SeoFieldsFragment
-  ) | null, featuredProductImage?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null, productImagesCollection?: { __typename?: 'AssetCollection', items: Array<(
-      { __typename?: 'Asset' }
-      & ImageFieldsFragment
-    ) | null> } | null };
-
-export type PageProductFieldsFragment = (
-  { __typename?: 'PageProduct', relatedProductsCollection?: { __typename?: 'PageProductRelatedProductsCollection', items: Array<(
-      { __typename?: 'PageProduct' }
-      & BasePageProductFieldsFragment
-    ) | null> } | null }
-  & BasePageProductFieldsFragment
-);
-
-export type PageProductQueryVariables = Exact<{
-  slug: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageProductQuery = { __typename?: 'Query', pageProductCollection?: { __typename?: 'PageProductCollection', items: Array<(
-      { __typename?: 'PageProduct' }
-      & PageProductFieldsFragment
-    ) | null> } | null };
-
-export type PageProductCollectionQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageProductCollectionQuery = { __typename?: 'Query', pageProductCollection?: { __typename?: 'PageProductCollection', items: Array<(
-      { __typename?: 'PageProduct' }
-      & PageProductFieldsFragment
-    ) | null> } | null };
-
-export type SeoFieldsFragment = { __typename: 'ComponentSeo', pageTitle?: string | null, pageDescription?: string | null, canonicalUrl?: string | null, nofollow?: boolean | null, noindex?: boolean | null, shareImagesCollection?: { __typename?: 'AssetCollection', items: Array<(
-      { __typename?: 'Asset' }
-      & ImageFieldsFragment
-    ) | null> } | null };
-
-export type SitemapPagesFieldsFragment = { __typename?: 'Query', pageProductCollection?: { __typename?: 'PageProductCollection', items: Array<{ __typename?: 'PageProduct', slug?: string | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null, pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<{ __typename?: 'PageLanding', sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
-
-export type SitemapPagesQueryVariables = Exact<{
-  locale: Scalars['String'];
-}>;
-
-
-export type SitemapPagesQuery = (
-  { __typename?: 'Query' }
-  & SitemapPagesFieldsFragment
-);
-
-export const ImageFieldsFragmentDoc = gql`
-    fragment ImageFields on Asset {
-  __typename
-  sys {
-    id
-  }
-  title
-  description
-  width
-  height
-  url
-  contentType
-}
-    `;
-export const SeoFieldsFragmentDoc = gql`
-    fragment SeoFields on ComponentSeo {
-  __typename
-  pageTitle
-  pageDescription
-  canonicalUrl
-  nofollow
-  noindex
-  shareImagesCollection(limit: 3, locale: $locale) {
-    items {
-      ...ImageFields
-    }
-  }
-}
-    `;
-export const BasePageProductFieldsFragmentDoc = gql`
-    fragment BasePageProductFields on PageProduct {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  internalName
-  slug
-  seoFields {
-    ...SeoFields
-  }
-  name
-  description
-  price
-  featuredProductImage {
-    ...ImageFields
-  }
-  productImagesCollection(limit: 6) {
-    items {
-      ...ImageFields
-    }
-  }
-}
-    `;
-export const PageProductFieldsFragmentDoc = gql`
-    fragment PageProductFields on PageProduct {
-  ...BasePageProductFields
-  relatedProductsCollection(limit: 6) {
-    items {
-      ...BasePageProductFields
-    }
-  }
-}
-    `;
-export const PageLandingFieldsFragmentDoc = gql`
-    fragment PageLandingFields on PageLanding {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  internalName
-  seoFields {
-    ...SeoFields
-  }
-  heroBannerHeadline
-  heroBannerHeadlineColor
-  heroBannerImage {
-    ...ImageFields
-  }
-  productsCollection(limit: 6) {
-    items {
-      ...PageProductFields
-    }
-  }
-}
-    `;
-export const SitemapPagesFieldsFragmentDoc = gql`
-    fragment sitemapPagesFields on Query {
-  pageProductCollection(limit: 100, locale: $locale) {
-    items {
-      slug
-      sys {
-        publishedAt
-      }
-    }
-  }
-  pageLandingCollection(limit: 1, locale: $locale) {
-    items {
-      sys {
-        publishedAt
-      }
-    }
-  }
-}
-    `;
-export const PageLandingDocument = gql`
-    query pageLanding($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 1, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
-    }
-  }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}`;
-export const PageLandingCollectionDocument = gql`
-    query pageLandingCollection($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 100, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
-    }
-  }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}`;
-export const PageProductDocument = gql`
-    query pageProduct($slug: String!, $locale: String, $preview: Boolean) {
-  pageProductCollection(
-    limit: 1
-    where: {slug: $slug}
-    locale: $locale
-    preview: $preview
-  ) {
-    items {
-      ...PageProductFields
-    }
-  }
-}
-    ${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}`;
-export const PageProductCollectionDocument = gql`
-    query pageProductCollection($locale: String, $preview: Boolean) {
-  pageProductCollection(limit: 100, locale: $locale, preview: $preview) {
-    items {
-      ...PageProductFields
-    }
-  }
-}
-    ${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}`;
-export const SitemapPagesDocument = gql`
-    query sitemapPages($locale: String!) {
-  ...sitemapPagesFields
-}
-    ${SitemapPagesFieldsFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -2473,21 +2323,7 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    pageLanding(variables?: PageLandingQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingQuery>(PageLandingDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLanding', 'query');
-    },
-    pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>(PageLandingCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLandingCollection', 'query');
-    },
-    pageProduct(variables: PageProductQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageProductQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageProductQuery>(PageProductDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageProduct', 'query');
-    },
-    pageProductCollection(variables?: PageProductCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageProductCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageProductCollectionQuery>(PageProductCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageProductCollection', 'query');
-    },
-    sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SitemapPagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>(SitemapPagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'sitemapPages', 'query');
-    }
+
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
