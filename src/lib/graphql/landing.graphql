@@ -21,7 +21,7 @@ fragment PageLandingFields on PageLanding {
       ...PageProductFields
     }
   }
-  mediaCollection(limit: 6) {
+  topicsCollection(limit: 6) {
     items {
       ...PageTopicFields
     }

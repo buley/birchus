@@ -18,9 +18,17 @@ fragment BasePageTopicFields on PageTopic {
 
 fragment PageTopicFields on PageTopic {
   ...BasePageTopicFields
-  relatedTopicsCollection(limit: 6) {
+  productsCollection(limit: 6) {
     items {
-      ...BasePageTopicFields
+      ...BasePageProductFields
+    }
+  }
+}
+
+query pageTopic($slug: String!, $locale: String, $preview: Boolean) {
+  pageTopicCollection(limit: 1, where: { slug: $slug }, locale: $locale, preview: $preview) {
+    items {
+      ...PageTopicFields
     }
   }
 }

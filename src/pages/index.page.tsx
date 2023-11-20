@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 
 import { HeroBanner } from '@src/components/features/hero-banner';
 import { ProductTileGrid } from '@src/components/features/product';
+import { TopicTileGrid } from '@src/components/features/topic';
 import { SeoFields } from '@src/components/features/seo';
 import { client, previewClient } from '@src/lib/client';
 import { getServerSideTranslations } from '@src/pages/utils/get-serverside-translations';
@@ -24,9 +25,9 @@ const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
             md: 9,
             lg: 16,
           }}>
-          <ProductTileGrid
+          <TopicTileGrid
             title={t('product.trendingMedia')}
-            products={page.mediaCollection.items}
+            topics={page.topicCollection.items}
           />
         </Box>
       )}

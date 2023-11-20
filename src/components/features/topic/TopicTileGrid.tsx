@@ -1,15 +1,15 @@
 import { Container, Grid, GridItem, Heading } from '@chakra-ui/react';
 
-import { ProductTile } from '@src/components/features/product/ProductTile';
-import { PageProductFieldsFragment } from '@src/lib/__generated/sdk';
+import { ProductTile } from '@src/components/features/topic/TopicTile';
+import { PageTopicFieldsFragment } from '@src/lib/__generated/sdk';
 
-interface ProductTileGridProps {
+interface TopicTileGridProps {
   title: string;
-  products: Array<PageProductFieldsFragment | undefined | null>;
+  topics: Array<PageTopicFieldsFragment | undefined | null>;
 }
 
-export const ProductTileGrid = ({ title, products }: ProductTileGridProps) => {
-  const filteredProducts = products.filter((product) => product !== undefined && product !== null);
+export const TopicTileGrid = ({ title, topics }: TopicTileGridProps) => {
+  const filteredProducts = topics.filter((topic) => topic !== undefined && topic !== null);
   if (filteredProducts.length === 0) {
     return null;
   }
@@ -24,8 +24,8 @@ export const ProductTileGrid = ({ title, products }: ProductTileGridProps) => {
         templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         rowGap={{ base: 6, lg: 6 }}
         columnGap={{ base: 4, lg: 24 }}>
-        {products.map((product, index) => {
-          return <GridItem key={index}>{product ? <ProductTile {...product} /> : null}</GridItem>;
+        {topics.map((topic, index) => {
+          return <GridItem key={index}>{topic ? <ProductTile {...topic} /> : null}</GridItem>;
         })}
       </Grid>
     </Container>
