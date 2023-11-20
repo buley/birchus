@@ -5,6 +5,7 @@ import { CtfImage } from '@src/components/features/contentful/ctf-image';
 import { FormatCurrency } from '@src/components/shared/format-currency';
 import { QuantitySelector } from '@src/components/shared/quantity-selector';
 import { PageProductFieldsFragment } from '@src/lib/__generated/sdk';
+import ReactMarkdown from 'react-markdown';
 
 export const ProductDetails = ({
   name,
@@ -59,10 +60,10 @@ export const ProductDetails = ({
                 <FormatCurrency value={price} />
               </Text>
             )}
-            <Text {...inspectorProps({ fieldId: 'description' })} mt={5} color={theme.f36.gray700}>
-              {description}
-            </Text>
-
+            <ReactMarkdown
+              {...inspectorProps({ fieldId: 'description' })}
+              children={description}
+            />
             <Box mt={{ base: 5, lg: 10 }}>
               <QuantitySelector />
             </Box>
