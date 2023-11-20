@@ -62,8 +62,9 @@ export const ProductDetails = ({
             )}
             <ReactMarkdown
               {...inspectorProps({ fieldId: 'description' })}
-              children={description}
-            />
+            >
+              {description}
+            </ReactMarkdown>
             <Box mt={{ base: 5, lg: 10 }}>
               <QuantitySelector />
             </Box>
