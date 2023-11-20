@@ -1,11 +1,10 @@
 import { Box, Container, Flex, Grid, GridItem, Heading, Text, useTheme } from '@chakra-ui/react';
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-
+import ReactMarkdown from 'react-markdown';
 import { CtfImage } from '@src/components/features/contentful/ctf-image';
 import { FormatCurrency } from '@src/components/shared/format-currency';
 import { QuantitySelector } from '@src/components/shared/quantity-selector';
 import { PageProductFieldsFragment } from '@src/lib/__generated/sdk';
-import ReactMarkdown from 'react-markdown';
 
 export const ProductDetails = ({
   name,

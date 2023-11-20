@@ -9,13 +9,17 @@ interface ProductTileGridProps {
 }
 
 export const ProductTileGrid = ({ title, products }: ProductTileGridProps) => {
+  const filteredProducts = products.filter((product) => product !== undefined && product !== null);
+  if (filteredProducts.length === 0) {
+    return null;
+  }
   return (
     <Container>
-      {title && (
+      {filteredProducts.length >= 1 && title && (
         <Heading as="h2" mb={3}>
           {title}
         </Heading>
-      ) && products?.count > 0}
+      )}
       <Grid
         templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         rowGap={{ base: 6, lg: 6 }}
