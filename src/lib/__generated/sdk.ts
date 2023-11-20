@@ -483,12 +483,18 @@ export enum ComponentSeoLinkingCollectionsPageProductCollectionOrder {
 }
 
 export enum ComponentSeoLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -694,6 +700,7 @@ export type PageArticle = Entry & {
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageArticleLinkingCollections>;
   name?: Maybe<Scalars['String']>;
+  pageTopicsCollection?: Maybe<PageArticlePageTopicsCollection>;
   productImagesCollection?: Maybe<AssetCollection>;
   relatedProductsCollection?: Maybe<PageArticleRelatedProductsCollection>;
   seoFields?: Maybe<ComponentSeo>;
@@ -730,6 +737,17 @@ export type PageArticleLinkedFromArgs = {
 /** To output data for a single piece of produced content. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageArticle) */
 export type PageArticleNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single piece of produced content. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageArticle) */
+export type PageArticlePageTopicsCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageArticlePageTopicsCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<PageTopicFilter>;
 };
 
 
@@ -800,6 +818,8 @@ export type PageArticleFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  pageTopics?: InputMaybe<CfPageTopicNestedFilter>;
+  pageTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   productImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   relatedProducts?: InputMaybe<CfPageProductNestedFilter>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']>;
@@ -839,12 +859,18 @@ export type PageArticleLinkingCollectionsPageTopicCollectionArgs = {
 };
 
 export enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -856,6 +882,37 @@ export enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
 }
 
 export enum PageArticleOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export type PageArticlePageTopicsCollection = {
+  __typename?: 'PageArticlePageTopicsCollection';
+  items: Array<Maybe<PageTopic>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export enum PageArticlePageTopicsCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
   NameAsc = 'name_ASC',
@@ -1042,12 +1099,18 @@ export type PageLandingLinkingCollectionsPageTopicCollectionArgs = {
 };
 
 export enum PageLandingLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1067,12 +1130,18 @@ export type PageLandingMediaCollection = {
 };
 
 export enum PageLandingMediaCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1136,6 +1205,7 @@ export type PageProduct = Entry & {
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageProductLinkingCollections>;
   name?: Maybe<Scalars['String']>;
+  pageTopicsCollection?: Maybe<PageProductPageTopicsCollection>;
   price?: Maybe<Scalars['Float']>;
   productImagesCollection?: Maybe<AssetCollection>;
   relatedProductsCollection?: Maybe<PageProductRelatedProductsCollection>;
@@ -1173,6 +1243,17 @@ export type PageProductLinkedFromArgs = {
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
 export type PageProductNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageProduct) */
+export type PageProductPageTopicsCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageProductPageTopicsCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<PageTopicFilter>;
 };
 
 
@@ -1249,6 +1330,8 @@ export type PageProductFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  pageTopics?: InputMaybe<CfPageTopicNestedFilter>;
+  pageTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   price?: InputMaybe<Scalars['Float']>;
   price_exists?: InputMaybe<Scalars['Boolean']>;
   price_gt?: InputMaybe<Scalars['Float']>;
@@ -1380,12 +1463,18 @@ export enum PageProductLinkingCollectionsPageProductCollectionOrder {
 }
 
 export enum PageProductLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1403,6 +1492,37 @@ export enum PageProductOrder {
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export type PageProductPageTopicsCollection = {
+  __typename?: 'PageProductPageTopicsCollection';
+  items: Array<Maybe<PageTopic>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export enum PageProductPageTopicsCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -1447,14 +1567,19 @@ export type PageTopic = Entry & {
   __typename?: 'PageTopic';
   articlesCollection?: Maybe<PageTopicArticlesCollection>;
   contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']>;
+  featuredTopicImage?: Maybe<Asset>;
   heroBannerHeadline?: Maybe<Scalars['String']>;
   heroBannerHeadlineColor?: Maybe<Scalars['String']>;
   heroBannerImage?: Maybe<Asset>;
   homepage?: Maybe<PageLanding>;
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageTopicLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
   productsCollection?: Maybe<PageTopicProductsCollection>;
+  relatedTopicsCollection?: Maybe<PageTopicRelatedTopicsCollection>;
   seoFields?: Maybe<ComponentSeo>;
+  slug?: Maybe<Scalars['String']>;
   sys: Sys;
 };
 
@@ -1467,6 +1592,19 @@ export type PageTopicArticlesCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<PageArticleFilter>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicFeaturedTopicImageArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1510,6 +1648,12 @@ export type PageTopicLinkedFromArgs = {
 
 
 /** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
 export type PageTopicProductsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -1521,10 +1665,27 @@ export type PageTopicProductsCollectionArgs = {
 
 
 /** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicRelatedTopicsCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageTopicRelatedTopicsCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<PageTopicFilter>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
 export type PageTopicSeoFieldsArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<ComponentSeoFilter>;
+};
+
+
+/** To have a place for topic-based hubs. [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageTopic) */
+export type PageTopicSlugArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 export type PageTopicArticlesCollection = {
@@ -1566,6 +1727,14 @@ export type PageTopicFilter = {
   articles?: InputMaybe<CfPageArticleNestedFilter>;
   articlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  featuredTopicImage_exists?: InputMaybe<Scalars['Boolean']>;
   heroBannerHeadline?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor_contains?: InputMaybe<Scalars['String']>;
@@ -1590,23 +1759,51 @@ export type PageTopicFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   products?: InputMaybe<CfPageProductNestedFilter>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedTopics?: InputMaybe<CfPageTopicNestedFilter>;
+  relatedTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
 export type PageTopicLinkingCollections = {
   __typename?: 'PageTopicLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
+  pageArticleCollection?: Maybe<PageArticleCollection>;
   pageLandingCollection?: Maybe<PageLandingCollection>;
+  pageProductCollection?: Maybe<PageProductCollection>;
+  pageTopicCollection?: Maybe<PageTopicCollection>;
 };
 
 
 export type PageTopicLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type PageTopicLinkingCollectionsPageArticleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageTopicLinkingCollectionsPageArticleCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
@@ -1619,6 +1816,41 @@ export type PageTopicLinkingCollectionsPageLandingCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+
+export type PageTopicLinkingCollectionsPageProductCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageTopicLinkingCollectionsPageProductCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type PageTopicLinkingCollectionsPageTopicCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<PageTopicLinkingCollectionsPageTopicCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum PageTopicLinkingCollectionsPageArticleCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
@@ -1637,13 +1869,61 @@ export enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-export enum PageTopicOrder {
+export enum PageTopicLinkingCollectionsPageProductCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum PageTopicLinkingCollectionsPageTopicCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
   HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
   HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
   HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export enum PageTopicOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1669,6 +1949,37 @@ export enum PageTopicProductsCollectionOrder {
   NameDesc = 'name_DESC',
   PriceAsc = 'price_ASC',
   PriceDesc = 'price_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+export type PageTopicRelatedTopicsCollection = {
+  __typename?: 'PageTopicRelatedTopicsCollection';
+  items: Array<Maybe<PageTopic>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export enum PageTopicRelatedTopicsCollectionOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
+  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
+  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
+  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -2079,6 +2390,7 @@ export type CfPageArticleNestedFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  pageTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   productImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
@@ -2150,6 +2462,7 @@ export type CfPageProductNestedFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  pageTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   price?: InputMaybe<Scalars['Float']>;
   price_exists?: InputMaybe<Scalars['Boolean']>;
   price_gt?: InputMaybe<Scalars['Float']>;
@@ -2177,6 +2490,14 @@ export type CfPageTopicNestedFilter = {
   OR?: InputMaybe<Array<InputMaybe<CfPageTopicNestedFilter>>>;
   articlesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  featuredTopicImage_exists?: InputMaybe<Scalars['Boolean']>;
   heroBannerHeadline?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor?: InputMaybe<Scalars['String']>;
   heroBannerHeadlineColor_contains?: InputMaybe<Scalars['String']>;
@@ -2200,8 +2521,23 @@ export type CfPageTopicNestedFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedTopicsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
@@ -2216,6 +2552,9 @@ export type PageLandingFieldsFragment = { __typename: 'PageLanding', internalNam
   ) | null, productsCollection?: { __typename?: 'PageLandingProductsCollection', items: Array<(
       { __typename?: 'PageProduct' }
       & PageProductFieldsFragment
+    ) | null> } | null, mediaCollection?: { __typename?: 'PageLandingMediaCollection', items: Array<(
+      { __typename?: 'PageTopic' }
+      & PageTopicFieldsFragment
     ) | null> } | null };
 
 export type PageLandingQueryVariables = Exact<{
@@ -2299,6 +2638,22 @@ export type SitemapPagesQuery = (
   & SitemapPagesFieldsFragment
 );
 
+export type BasePageTopicFieldsFragment = { __typename: 'PageTopic', internalName?: string | null, slug?: string | null, name?: string | null, description?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+    { __typename?: 'ComponentSeo' }
+    & SeoFieldsFragment
+  ) | null, featuredTopicImage?: (
+    { __typename?: 'Asset' }
+    & ImageFieldsFragment
+  ) | null };
+
+export type PageTopicFieldsFragment = (
+  { __typename?: 'PageTopic', relatedTopicsCollection?: { __typename?: 'PageTopicRelatedTopicsCollection', items: Array<(
+      { __typename?: 'PageTopic' }
+      & BasePageTopicFieldsFragment
+    ) | null> } | null }
+  & BasePageTopicFieldsFragment
+);
+
 export const ImageFieldsFragmentDoc = gql`
     fragment ImageFields on Asset {
   __typename
@@ -2363,6 +2718,35 @@ export const PageProductFieldsFragmentDoc = gql`
   }
 }
     `;
+export const BasePageTopicFieldsFragmentDoc = gql`
+    fragment BasePageTopicFields on PageTopic {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  internalName
+  slug
+  seoFields {
+    ...SeoFields
+  }
+  name
+  description
+  featuredTopicImage {
+    ...ImageFields
+  }
+}
+    `;
+export const PageTopicFieldsFragmentDoc = gql`
+    fragment PageTopicFields on PageTopic {
+  ...BasePageTopicFields
+  relatedTopicsCollection(limit: 6) {
+    items {
+      ...BasePageTopicFields
+    }
+  }
+}
+    `;
 export const PageLandingFieldsFragmentDoc = gql`
     fragment PageLandingFields on PageLanding {
   __typename
@@ -2382,6 +2766,11 @@ export const PageLandingFieldsFragmentDoc = gql`
   productsCollection(limit: 6) {
     items {
       ...PageProductFields
+    }
+  }
+  mediaCollection(limit: 6) {
+    items {
+      ...PageTopicFields
     }
   }
 }
@@ -2417,7 +2806,9 @@ export const PageLandingDocument = gql`
 ${SeoFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
 ${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}`;
+${BasePageProductFieldsFragmentDoc}
+${PageTopicFieldsFragmentDoc}
+${BasePageTopicFieldsFragmentDoc}`;
 export const PageLandingCollectionDocument = gql`
     query pageLandingCollection($locale: String, $preview: Boolean) {
   pageLandingCollection(limit: 100, locale: $locale, preview: $preview) {
@@ -2430,7 +2821,9 @@ export const PageLandingCollectionDocument = gql`
 ${SeoFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
 ${PageProductFieldsFragmentDoc}
-${BasePageProductFieldsFragmentDoc}`;
+${BasePageProductFieldsFragmentDoc}
+${PageTopicFieldsFragmentDoc}
+${BasePageTopicFieldsFragmentDoc}`;
 export const PageProductDocument = gql`
     query pageProduct($slug: String!, $locale: String, $preview: Boolean) {
   pageProductCollection(

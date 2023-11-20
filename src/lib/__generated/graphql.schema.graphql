@@ -249,12 +249,18 @@ enum ComponentSeoLinkingCollectionsPageProductCollectionOrder {
 }
 
 enum ComponentSeoLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -512,6 +518,7 @@ type PageArticle implements Entry {
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): PageArticleLinkingCollections
   name(locale: String): String
+  pageTopicsCollection(limit: Int = 100, locale: String, order: [PageArticlePageTopicsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageTopicFilter): PageArticlePageTopicsCollection
   productImagesCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): AssetCollection
   relatedProductsCollection(limit: Int = 100, locale: String, order: [PageArticleRelatedProductsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageProductFilter): PageArticleRelatedProductsCollection
   seoFields(locale: String, preview: Boolean, where: ComponentSeoFilter): ComponentSeo
@@ -552,6 +559,8 @@ input PageArticleFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  pageTopics: cfPageTopicNestedFilter
+  pageTopicsCollection_exists: Boolean
   productImagesCollection_exists: Boolean
   relatedProducts: cfPageProductNestedFilter
   relatedProductsCollection_exists: Boolean
@@ -573,12 +582,18 @@ type PageArticleLinkingCollections {
 }
 
 enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -590,6 +605,36 @@ enum PageArticleLinkingCollectionsPageTopicCollectionOrder {
 }
 
 enum PageArticleOrder {
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type PageArticlePageTopicsCollection {
+  items: [PageTopic]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum PageArticlePageTopicsCollectionOrder {
+  description_ASC
+  description_DESC
+  heroBannerHeadlineColor_ASC
+  heroBannerHeadlineColor_DESC
+  heroBannerHeadline_ASC
+  heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
   name_ASC
@@ -696,12 +741,18 @@ type PageLandingLinkingCollections {
 }
 
 enum PageLandingLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -720,12 +771,18 @@ type PageLandingMediaCollection {
 }
 
 enum PageLandingMediaCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -789,6 +846,7 @@ type PageProduct implements Entry {
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): PageProductLinkingCollections
   name(locale: String): String
+  pageTopicsCollection(limit: Int = 100, locale: String, order: [PageProductPageTopicsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageTopicFilter): PageProductPageTopicsCollection
   price(locale: String): Float
   productImagesCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): AssetCollection
   relatedProductsCollection(limit: Int = 100, locale: String, order: [PageProductRelatedProductsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageProductFilter): PageProductRelatedProductsCollection
@@ -830,6 +888,8 @@ input PageProductFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  pageTopics: cfPageTopicNestedFilter
+  pageTopicsCollection_exists: Boolean
   price: Float
   price_exists: Boolean
   price_gt: Float
@@ -916,12 +976,18 @@ enum PageProductLinkingCollectionsPageProductCollectionOrder {
 }
 
 enum PageProductLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -939,6 +1005,36 @@ enum PageProductOrder {
   name_DESC
   price_ASC
   price_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type PageProductPageTopicsCollection {
+  items: [PageTopic]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum PageProductPageTopicsCollectionOrder {
+  description_ASC
+  description_DESC
+  heroBannerHeadlineColor_ASC
+  heroBannerHeadlineColor_DESC
+  heroBannerHeadline_ASC
+  heroBannerHeadline_DESC
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
   slug_ASC
   slug_DESC
   sys_firstPublishedAt_ASC
@@ -983,14 +1079,19 @@ To have a place for topic-based hubs. [See type definition](https://app.contentf
 type PageTopic implements Entry {
   articlesCollection(limit: Int = 100, locale: String, order: [PageTopicArticlesCollectionOrder], preview: Boolean, skip: Int = 0, where: PageArticleFilter): PageTopicArticlesCollection
   contentfulMetadata: ContentfulMetadata!
+  description(locale: String): String
+  featuredTopicImage(locale: String, preview: Boolean): Asset
   heroBannerHeadline(locale: String): String
   heroBannerHeadlineColor(locale: String): String
   heroBannerImage(locale: String, preview: Boolean): Asset
   homepage(locale: String, preview: Boolean, where: PageLandingFilter): PageLanding
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): PageTopicLinkingCollections
+  name(locale: String): String
   productsCollection(limit: Int = 100, locale: String, order: [PageTopicProductsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageProductFilter): PageTopicProductsCollection
+  relatedTopicsCollection(limit: Int = 100, locale: String, order: [PageTopicRelatedTopicsCollectionOrder], preview: Boolean, skip: Int = 0, where: PageTopicFilter): PageTopicRelatedTopicsCollection
   seoFields(locale: String, preview: Boolean, where: ComponentSeoFilter): ComponentSeo
+  slug(locale: String): String
   sys: Sys!
 }
 
@@ -1031,6 +1132,14 @@ input PageTopicFilter {
   articles: cfPageArticleNestedFilter
   articlesCollection_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  featuredTopicImage_exists: Boolean
   heroBannerHeadline: String
   heroBannerHeadlineColor: String
   heroBannerHeadlineColor_contains: String
@@ -1055,16 +1164,52 @@ input PageTopicFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
   products: cfPageProductNestedFilter
   productsCollection_exists: Boolean
+  relatedTopics: cfPageTopicNestedFilter
+  relatedTopicsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
   seoFields_exists: Boolean
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
   sys: SysFilter
 }
 
 type PageTopicLinkingCollections {
   entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+  pageArticleCollection(limit: Int = 100, locale: String, order: [PageTopicLinkingCollectionsPageArticleCollectionOrder], preview: Boolean, skip: Int = 0): PageArticleCollection
   pageLandingCollection(limit: Int = 100, locale: String, order: [PageTopicLinkingCollectionsPageLandingCollectionOrder], preview: Boolean, skip: Int = 0): PageLandingCollection
+  pageProductCollection(limit: Int = 100, locale: String, order: [PageTopicLinkingCollectionsPageProductCollectionOrder], preview: Boolean, skip: Int = 0): PageProductCollection
+  pageTopicCollection(limit: Int = 100, locale: String, order: [PageTopicLinkingCollectionsPageTopicCollectionOrder], preview: Boolean, skip: Int = 0): PageTopicCollection
+}
+
+enum PageTopicLinkingCollectionsPageArticleCollectionOrder {
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
 }
 
 enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
@@ -1084,13 +1229,61 @@ enum PageTopicLinkingCollectionsPageLandingCollectionOrder {
   sys_publishedVersion_DESC
 }
 
-enum PageTopicOrder {
+enum PageTopicLinkingCollectionsPageProductCollectionOrder {
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
+  price_ASC
+  price_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum PageTopicLinkingCollectionsPageTopicCollectionOrder {
+  description_ASC
+  description_DESC
   heroBannerHeadlineColor_ASC
   heroBannerHeadlineColor_DESC
   heroBannerHeadline_ASC
   heroBannerHeadline_DESC
   internalName_ASC
   internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum PageTopicOrder {
+  description_ASC
+  description_DESC
+  heroBannerHeadlineColor_ASC
+  heroBannerHeadlineColor_DESC
+  heroBannerHeadline_ASC
+  heroBannerHeadline_DESC
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC
@@ -1115,6 +1308,36 @@ enum PageTopicProductsCollectionOrder {
   name_DESC
   price_ASC
   price_DESC
+  slug_ASC
+  slug_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type PageTopicRelatedTopicsCollection {
+  items: [PageTopic]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum PageTopicRelatedTopicsCollectionOrder {
+  description_ASC
+  description_DESC
+  heroBannerHeadlineColor_ASC
+  heroBannerHeadlineColor_DESC
+  heroBannerHeadline_ASC
+  heroBannerHeadline_DESC
+  internalName_ASC
+  internalName_DESC
+  name_ASC
+  name_DESC
   slug_ASC
   slug_DESC
   sys_firstPublishedAt_ASC
@@ -1357,6 +1580,7 @@ input cfPageArticleNestedFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  pageTopicsCollection_exists: Boolean
   productImagesCollection_exists: Boolean
   relatedProductsCollection_exists: Boolean
   seoFields_exists: Boolean
@@ -1428,6 +1652,7 @@ input cfPageProductNestedFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  pageTopicsCollection_exists: Boolean
   price: Float
   price_exists: Boolean
   price_gt: Float
@@ -1455,6 +1680,14 @@ input cfPageTopicNestedFilter {
   OR: [cfPageTopicNestedFilter]
   articlesCollection_exists: Boolean
   contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  featuredTopicImage_exists: Boolean
   heroBannerHeadline: String
   heroBannerHeadlineColor: String
   heroBannerHeadlineColor_contains: String
@@ -1478,7 +1711,22 @@ input cfPageTopicNestedFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
   productsCollection_exists: Boolean
+  relatedTopicsCollection_exists: Boolean
   seoFields_exists: Boolean
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
   sys: SysFilter
 }
