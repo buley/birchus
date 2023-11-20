@@ -1,0 +1,39 @@
+fragment BasePageArticleFields on PageArticle {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  internalName
+  slug
+  seoFields {
+    ...SeoFields
+  }
+  name
+  description
+  featuredImage {
+    ...ImageFields
+  }
+}
+
+fragment PageArticleFields on PageArticle {
+  ...BasePageArticleFields
+  productsCollection(limit: 6) {
+    items {
+      ...BasePageProductFields
+    }
+  }
+  topicsCollection(limit: 6) {
+    items {
+      ...BasePageTopicFields
+    }
+  }
+}
+
+query pageArticle($slug: String!, $locale: String, $preview: Boolean) {
+  pageArticleCollection(limit: 1, where: { slug: $slug }, locale: $locale, preview: $preview) {
+    items {
+      ...PageArticleFields
+    }
+  }
+}

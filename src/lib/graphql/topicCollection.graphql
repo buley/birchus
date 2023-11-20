@@ -1,0 +1,7 @@
+query pageTopicCollection($locale: String, $preview: Boolean) {
+  pageTopicCollection(limit: 100, locale: $locale, preview: $preview) {
+    items {
+      ...PageTopicFields
+    }
+  }
+}
