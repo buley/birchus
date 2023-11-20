@@ -15,7 +15,7 @@ export const ProductTileGrid = ({ title, products }: ProductTileGridProps) => {
         <Heading as="h2" mb={3}>
           {title}
         </Heading>
-      )}
+      ) && products?.count > 0}
       <Grid
         templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         rowGap={{ base: 6, lg: 6 }}
