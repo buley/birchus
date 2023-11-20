@@ -26,6 +26,11 @@ fragment PageLandingFields on PageLanding {
       ...PageTopicFields
     }
   }
+  articlesCollection(limit: 6) {
+    items {
+      ...PageArticleFields
+    }
+  }
 }
 
 query pageLanding($locale: String, $preview: Boolean) {
