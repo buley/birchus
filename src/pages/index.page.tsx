@@ -26,7 +26,7 @@ const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
           }}>
           <ProductTileGrid
             title={t('product.trendingMedia')}
-            products={page.media.items}
+            products={page.mediaCollection.items}
           />
         </Box>
       )}
@@ -39,7 +39,7 @@ const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
           }}>
           <ProductTileGrid
             title={t('product.trendingArticles')}
-            products={page.articles.items}
+            products={page.articlesCollection.items}
           />
         </Box>
       )}

@@ -1,0 +1,26 @@
+fragment BasePageTopicFields on PageTopic {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  internalName
+  slug
+  seoFields {
+    ...SeoFields
+  }
+  name
+  description
+  featuredTopicImage {
+    ...ImageFields
+  }
+}
+
+fragment PageTopicFields on PageTopic {
+  ...BasePageTopicFields
+  relatedTopicsCollection(limit: 6) {
+    items {
+      ...BasePageTopicFields
+    }
+  }
+}
