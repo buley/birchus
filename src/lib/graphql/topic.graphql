@@ -18,7 +18,7 @@ fragment BasePageTopicFields on PageTopic {
 
 fragment PageTopicFields on PageTopic {
   ...BasePageTopicFields
-  productsCollection(limit: 6) {
+  productsCollection(limit: 16) {
     items {
       ...BasePageProductFields
     }

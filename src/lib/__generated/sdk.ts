@@ -960,7 +960,6 @@ export type PageLanding = Entry & {
   heroBannerImage?: Maybe<Asset>;
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageLandingLinkingCollections>;
-  mediaCollection?: Maybe<PageLandingMediaCollection>;
   productsCollection?: Maybe<PageLandingProductsCollection>;
   seoFields?: Maybe<ComponentSeo>;
   sys: Sys;
@@ -1007,17 +1006,6 @@ export type PageLandingInternalNameArgs = {
 /** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
 export type PageLandingLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** To have an entry point for the app [See type definition](https://app.contentful.com/spaces/r11leasokahm/content_types/pageLanding) */
-export type PageLandingMediaCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageLandingMediaCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PageTopicFilter>;
 };
 
 
@@ -1111,8 +1099,6 @@ export type PageLandingFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  media?: InputMaybe<CfPageTopicNestedFilter>;
-  mediaCollection_exists?: InputMaybe<Scalars['Boolean']>;
   products?: InputMaybe<CfPageProductNestedFilter>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
@@ -1146,37 +1132,6 @@ export type PageLandingLinkingCollectionsPageTopicCollectionArgs = {
 };
 
 export enum PageLandingLinkingCollectionsPageTopicCollectionOrder {
-  DescriptionAsc = 'description_ASC',
-  DescriptionDesc = 'description_DESC',
-  HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
-  HeroBannerHeadlineColorDesc = 'heroBannerHeadlineColor_DESC',
-  HeroBannerHeadlineAsc = 'heroBannerHeadline_ASC',
-  HeroBannerHeadlineDesc = 'heroBannerHeadline_DESC',
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  NameAsc = 'name_ASC',
-  NameDesc = 'name_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-export type PageLandingMediaCollection = {
-  __typename?: 'PageLandingMediaCollection';
-  items: Array<Maybe<PageTopic>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export enum PageLandingMediaCollectionOrder {
   DescriptionAsc = 'description_ASC',
   DescriptionDesc = 'description_DESC',
   HeroBannerHeadlineColorAsc = 'heroBannerHeadlineColor_ASC',
@@ -2447,7 +2402,6 @@ export type CfPageLandingNestedFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  mediaCollection_exists?: InputMaybe<Scalars['Boolean']>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
   sys?: InputMaybe<SysFilter>;
@@ -2826,7 +2780,7 @@ export const BasePageTopicFieldsFragmentDoc = gql`
 export const PageTopicFieldsFragmentDoc = gql`
     fragment PageTopicFields on PageTopic {
   ...BasePageTopicFields
-  productsCollection(limit: 6) {
+  productsCollection(limit: 16) {
     items {
       ...BasePageProductFields
     }
@@ -2855,12 +2809,12 @@ export const BasePageArticleFieldsFragmentDoc = gql`
 export const PageArticleFieldsFragmentDoc = gql`
     fragment PageArticleFields on PageArticle {
   ...BasePageArticleFields
-  productsCollection(limit: 6) {
+  productsCollection(limit: 16) {
     items {
       ...BasePageProductFields
     }
   }
-  topicsCollection(limit: 6) {
+  topicsCollection(limit: 16) {
     items {
       ...BasePageTopicFields
     }
@@ -2883,17 +2837,17 @@ export const PageLandingFieldsFragmentDoc = gql`
   heroBannerImage {
     ...ImageFields
   }
-  productsCollection(limit: 6) {
+  productsCollection(limit: 16) {
     items {
       ...PageProductFields
     }
   }
-  topicsCollection(limit: 6) {
+  topicsCollection(limit: 16) {
     items {
       ...PageTopicFields
     }
   }
-  articlesCollection(limit: 6) {
+  articlesCollection(limit: 16) {
     items {
       ...PageArticleFields
     }

@@ -18,12 +18,12 @@ fragment BasePageArticleFields on PageArticle {
 
 fragment PageArticleFields on PageArticle {
   ...BasePageArticleFields
-  productsCollection(limit: 6) {
+  productsCollection(limit: 16) {
     items {
       ...BasePageProductFields
     }
   }
-  topicsCollection(limit: 6) {
+  topicsCollection(limit: 16) {
     items {
       ...BasePageTopicFields
     }
